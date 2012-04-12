@@ -1,0 +1,7 @@
+My implementation of Explicit Semantic Analysis (ESA) library that we used at KMi, Open University to produce our submission at the NTCIR-9 CrossLink task. 
+
+ - /example - see example data in /example where you can find an ESA background built from Wikipedia snapshot from 2005, and directly use it in our tools for assessing semantic similarity of English textis/words.
+
+ - /tutorial - basic instructions for building your own background
+
+ I want to add more specific and intuitive examples soon, but please don't hessitate to get in touch if you want to use my library and have troubles with it.

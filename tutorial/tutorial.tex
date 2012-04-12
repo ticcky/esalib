@@ -1,0 +1,151 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+%\usepackage{savetrees}
+\usepackage{fullpage}
+\title{Cross-lingual Link Discovery System: Tutorial}
+\author{Lukáš Žilka}
+\begin{document}
+\maketitle
+
+\section*{Importing Wikipedia Dump to Database}
+\begin{description}
+\item[Input:] XML Wikipedia Dump of the desired language version of Wikipedia from \texttt{dumps.wikimedia.org} (e.g. enwiki-20110803-pages-articles.xml.bz2)
+\item[Input:] Lang-links Dump of the Wikipedia whose page\_id's will be used as concepts (usually the English langlinks file) from \texttt{dumps.wikimedia.org} (e.g. enwiki-20110803-langlinks.sql.gz)
+\item[Input:] Redirect Dump of the desired language version of Wikipedia from \texttt{dumps.wikimedia.org} (e.g. enwiki-20110803-redirect.sql.gz)
+\item[Output:] Wikipedia in DB
+\end{description}
+
+\begin{enumerate}
+\item Run the following command to create 3 .sql files out of the Wikipedia dump: \\ \texttt{\# wikixray.py -f <path to the wikipedia dump>}
+\item Import the \texttt{data/mediawiki.sql} into the desired destination database: \\
+\texttt{\# cat data/mediawiki.sql | mysql -u<db user> -p<db password> <wikidb>}
+\item Import the created .sql files into the database: \\
+\texttt{\# cat \{page,revision,text\}.sql | mysql -u<db user> -p<db password> <wikidb>}
+\item Import the .sql file with langlinks. E.g: \\
+\texttt{\# zcat enwiki-langlinks.sql.gz | grep "es" | mysql -u<db user> -p<db password> <wikidb>}
+\item Import the .sql file with redirects. E.g: \\
+\texttt{\# zcat enwiki-redirects.sql.gz | mysql -u<db user> -p<db password> <wikidb>}
+\item Configure the PrepareWikiDb section in \verb|config.xml|:
+  \begin{description}
+  \item[db] URL string for connection to the database where we've just imported the aforementioned .sql files
+  \item[disambigStr] string which identifies that the given Wikipedia page serves as a disambiguation page
+  \item[hnDisambigStr] string which identifies that the given Wikipedia page serves as a human being disambiguation string
+  \item[lang] language code of the Wikipedia's language
+  \end{description}
+\begin{verbatim}
+<PrepareWikiDb:Cs>
+       <db>mysql://root:root@localhost/wikidb_cs</db>
+       <disambigStr>disambig</disambigStr>
+       <hnDisambigStr>hndis</hnDisambigStr>
+</PrepareWikiDb:Cs>
+\end{verbatim}
+\item Run the PrepareWikiDb.
+\end{enumerate}
+
+
+\section*{Building ESA Background}
+\begin{description}
+  \item[Input:] Wikipedia in DB
+  \item[Output:] ESA Background in DB
+\end{description}
+
+\begin{enumerate}
+\item Configure ArticleIndexer section in \verb|config.xml|:
+  \begin{description}
+    \item[db] URL string for connecting to the database
+    \item[indexPath] file path to the folder where the article index will be stored
+    \item[stopwordsFile] file path to the file with stop-words
+    \item[stemmerClass] full Java path to the Snowball class that does the stemming
+    \item[query.articleIter] SQL query in @db to retrieve the list of articles for indexing \\
+    \end{description}
+\begin{verbatim}
+<ArticleIndexer>
+        <db>mysql://root:rootf@localhost/wikidb_cs</db>
+        <indexPath>/xdisk/ndx_cs</indexPath>
+        <stopwordsFile>res/stopwords.cs.txt</stopwordsFile>
+        <stemmerClassx>org.tartarus.snowball.ext.EnglishStemmer</stemmerClassx>
+        <stemmerClass>common.lang.CzechStemmer</stemmerClass>
+        <query>
+                <articleIter>
+                             SELECT page_id AS id\, page_id AS page_id\, 
+                                    'cs' AS lang\, page.page_title\,
+                                    text.old_text AS content FROM page_concepts AS page 
+                             LEFT JOIN revision ON page_id = rev_page 
+                             LEFT JOIN text ON rev_text_id = old_id 
+                             WHERE page_id > ? LIMIT 100
+                </articleIter>
+	</query>
+</ArticleIndexer>
+\end{verbatim}
+
+
+\item Run \verb|clldsystem.esa.ArticleIndexer|.
+\item Configure ESAIndexBuilder in \verb|config.xml|:
+  \begin{description}
+  \item[lang] language code (for naming the database tables)
+  \item[db] destination database (tables called \texttt{@lang\_ndx} and \texttt{@lang\_terms} will be created)
+  \item[esaIndexPath] path with the article index (from the previous step)
+  \end{description}
+\begin{verbatim}
+<ESAIndexBuilder:en>
+       <lang>en</lang>
+       <db>mysql://root:root@localhost/clw</db>
+       <esaIndexPath>/home/zilka/devel/kmi/tmp/esaindex</esaIndexPath>
+</ESAIndexBuilder:en>
+\end{verbatim}
+
+\item Run \verb|clldsystem.esa.ESAIndexBuilder|. Note: this will work only on systems where the \texttt{sort} utility is on \texttt{PATH} (UNIX-like systems should not have problems)
+
+\item Done. The ESA Background for @lang, resides in @db from the ESAIndexBuilder configuration.
+\end{enumerate}
+
+
+\section*{Preparing ESA Vector Index}
+\begin{description}
+\item[Input:] Database with Wikipedia in some language
+\item[Input:] ESA Background for the corresponding language
+\item[Output:] ESA Vector Index Database
+\item[Output:] ESA Vector Index Files
+\end{description}
+\begin{enumerate}
+\item Configure ESAIndexer in \verb|config.xml|:
+  \begin{description}
+    \item[articleDb] URL string for connecting to the database with the articles
+  \item[esaDb] URL string for connecting to the database with the ESA Background
+  \item[destDb] URL string for connecting to the ESA Vector Index destination database
+  \item[destTableName] database table name for the ESA Vector Index in the destination database
+  \item[esaVectorSize] number of dimensions that will be stored for each article in the ESA Vector Index
+  \item[lang] language code for the Wikipedia and ESA Background
+    \item[indexPath] file path to the folder where the article index will be stored
+    \item[stopwordsFile] file path to the file with stop-words
+    \item[stemmerClass] full Java path to the Snowball class that does the stemming
+    \item[query.articleIter] SQL query in @articleDb to retrieve the list of articles for 
+  \end{description}
+\begin{verbatim}
+<ESAIndexer>
+        <articleDb>mysql://root:root@lwkm012/wikidb_zh</articleDb>
+        <esaDb>mysql://root:root@localhost/clld</esaDb>
+        <destDb>mysql://root:root@localhost/clw</destDb>
+        <destTableName>esa_vector_index_test</destTableName>
+        <esaVectorSize>100</esaVectorSize>
+        <lang>zh</lang>
+        <stopWordsFile>res/stopwords.zh.txt</stopWordsFile>
+        <stemmerClass></stemmerClass>
+        <query>
+        <articleIter>
+                SELECT page_id AS id\, page_id\, page.page_title\, text.old_text AS content 
+                FROM page_concepts AS page LEFT JOIN revision ON page_id = rev_page 
+                LEFT JOIN text ON rev_text_id = old_id WHERE page_id > ? LIMIT 100
+        </articleIter>
+        </query>
+</ESAIndexer>
+\end{verbatim}
+\item Run ESAIndexer. Note: this takes a considerable amount of time and can be parallelized; the script that runs this in parallel is in \texttt{scripts/run\_esaindexer}
+\item Edit \texttt{evi\_builder/memndx/prepare.py} in the bottom, and fill in the database connection details to the @destDb from the previous step, and the @destTableName.
+\item Make directory for the Index. E.g.:\\
+\texttt{\# mkdir /data/ndx\_en}
+\item Change to that directory and run \texttt{evi\_builder/memndx/prepare.py}.
+\item Now, there should be the built index files in the current directory (\texttt{/data/ndx\_en}). Those can be used with ESAIndexSearcher, through \texttt{esa\_search} MySQL function, specifying this path as an argument.
+\end{enumerate}
+
+\end{document}
