@@ -1,0 +1,1174 @@
+co
+ho
+jací
+jakou
+jaká
+jaké
+jakého
+jakém
+jakému
+jaký
+jakých
+jakým
+jakými
+je
+jeho
+jehož
+jej
+jejich
+její
+jejího
+jejím
+jejímaž
+jejími
+jejímu
+jejíž
+jejž
+jemu
+jemuž
+jenž
+jež
+ji
+jich
+jichž
+jim
+jimi
+jimiž
+jinou
+jiná
+jiné
+jiného
+jiném
+jinému
+jiní
+jiný
+jiných
+jiným
+jinými
+já
+jí
+jím
+jímž
+jíž
+každou
+každá
+každé
+každého
+každém
+každému
+každý
+každým
+kdo
+koho
+kom
+komu
+kterou
+která
+které
+kterého
+kterém
+kterému
+který
+kterých
+kterým
+kterými
+kteří
+kým
+mi
+mne
+mnou
+mně
+moje
+moji
+mojí
+mou
+mu
+my
+má
+mé
+mého
+mém
+mému
+mí
+mých
+mým
+mými
+mě
+můj
+nač
+naše
+našeho
+našem
+našemu
+naši
+našich
+našim
+našimi
+naší
+naším
+nesvoje
+nesvoji
+nesvojí
+nesvou
+nesvá
+nesvé
+nesvého
+nesvém
+nesvému
+nesví
+nesvých
+nesvým
+nesvými
+nesvůj
+ni
+nic
+nich
+nichž
+nijakého
+nijakém
+nijakému
+nijaký
+nijakým
+nikdo
+nikoho
+nikom
+nikomu
+nikým
+nim
+nimi
+ničeho
+ničem
+ničemu
+ničí
+ničích
+ničím
+ničími
+nám
+námi
+nás
+náš
+ní
+ním
+níž
+ně
+něho
+něj
+něm
+němu
+němž
+oba
+obou
+obě
+oběma
+on
+ona
+onen
+oni
+ono
+onoho
+onom
+onomu
+onou
+onu
+ony
+oné
+oním
+oněch
+oněm
+oněma
+oněmi
+oč
+pranic
+proč
+sama
+sami
+samo
+samotnou
+samotná
+samotné
+samotného
+samotném
+samotnému
+samotní
+samotný
+samotných
+samotným
+samotnýma
+samotnými
+samou
+samu
+samy
+samá
+samé
+samého
+samém
+samému
+samých
+samým
+samými
+se
+sebe
+sebou
+seč
+si
+ským
+sobě
+svoje
+svoji
+svojí
+svou
+svá
+své
+svého
+svém
+svému
+sví
+svých
+svým
+svými
+svůj
+sám
+ta
+takovou
+taková
+takové
+takového
+takovéhoto
+takovém
+takovémotu
+takovémto
+takovému
+takovéto
+takoví
+takovíto
+takový
+takových
+takovýchto
+takovým
+takovýma
+takovými
+takovýmito
+takovýmto
+tato
+tatáž
+tebe
+tebou
+ten
+tentýž
+ti
+tito
+titíž
+to
+tobě
+toho
+tohoto
+tom
+tomto
+tomtéž
+tomu
+tomuto
+toto
+totéž
+tou
+touž
+tu
+tutéž
+tvoje
+tvoji
+tvojí
+tvou
+tvá
+tvé
+tvého
+tvém
+tvému
+tví
+tvých
+tvým
+tvými
+tvůj
+ty
+tyto
+tytéž
+táž
+té
+téhož
+témuž
+témž
+témže
+této
+téže
+tím
+tímto
+tímtéž
+tíž
+týchž
+týmaž
+týmiž
+týmž
+týž
+tě
+těch
+těchto
+těm
+těma
+těmahle
+těmato
+těmi
+těmito
+těmto
+vaše
+vašeho
+vašem
+vašemu
+vaši
+vašich
+vašim
+vašimi
+vaší
+vaším
+vy
+vám
+vámi
+vás
+váš
+všcky
+vše
+všecek
+všech
+všechen
+všechna
+všechno
+všechnu
+všechny
+všecka
+všecko
+všeho
+všem
+všema
+všemi
+všemu
+všichni
+vší
+vším
+zač
+čeho
+čem
+čemu
+čí
+čích
+čího
+čím
+číma
+čími
+čímu
+žádnou
+žádná
+žádné
+žádného
+žádném
+žádnému
+žádní
+žádný
+žádných
+žádným
+žádnýmí
+v
+ve
+u
+do
+z
+ze
+k
+ke
+od
+ode
+na
+s
+se
+před
+přede
+za
+zpoza
+poza
+nad
+nade
+pod
+pode
+vně
+při
+zpod
+přes
+přese
+bez
+beze
+místo
+kromě
+vyjma
+o
+ob
+spolu
+blízko
+skrz
+skrze
+uprostřed
+doprostřed
+zprostřed
+středem
+mezi
+vevnitř
+uvnitř
+dovnitř
+zevnitř
+vnitřkem
+zvnitřku
+zvnitřka
+vnitřku
+vnitřka
+nedaleko
+napříč
+poblíž
+kol
+kolem
+kolkolem
+okolo
+podél
+dle
+podle
+vedle
+mimo
+stranou
+daleko
+zdaleka
+bokem
+zboku
+vespod
+vespodu
+dospod
+dospodu
+odspodu
+odspoda
+spodem
+naspod
+naspodu
+zespoda
+zespodu
+navrchu
+navrch
+svrchu
+vrchem
+proti
+naproti
+oproti
+během
+v průběhu
+průběhem
+úderem
+v půli
+v procesu
+u příležitosti
+hodinou
+dnem
+rokem
+půlí
+od půli
+od půle
+okamžikem
+do poloviny
+do okamžiku
+versus
+kontra
+zponad
+zeza
+ponad
+vůči
+po
+pro
+ku
+kupříkladu
+ku příkladu
+ku prospěchu
+kupodivu
+kvůli
+k vůli
+dík
+díky
+navzdory
+nehledě na
+nehledíc
+bez ohledu na
+v souladu s
+po dobu
+počátkem
+začátkem
+koncem
+na konci
+úvodem
+na prahu
+závěrem
+počínaje
+počínajíc
+od konce
+do začátku
+do konce
+končíc
+konče
+z důvodu
+následkem
+za příčinou
+z titulu
+v důsledku
+vlivem
+zásluhou
+vinou
+za účelem
+pro potřebu
+pro potřeby
+v zájmu
+ve prospěch
+potřeby
+pod podmínkou
+za podmínky
+za předpokladu
+v případě
+za cenu
+vzdor
+pomocí
+formou
+na základě
+prostřednictvím
+na bázi
+na principu
+po vzoru
+ve formě
+ve srovnání
+ve spolupráci s
+v součinnosti s
+v protikladu k
+na rozdíl od
+pod záštitou
+pod vedením
+zároveň s
+ve vztahu k
+co do
+ohledně
+s ohledem
+vzhledem
+ze stanoviska
+z hlediska
+po stránce
+ve smyslu
+v duchu
+v intencích
+vycházeje z
+vycházejíc z
+přihlížeje k
+přihlížejíc k
+s přihlédnutím k
+v rozporu s
+v návaznosti na
+v závislosti na
+se zřetelem k
+bez zřetele k
+nehledě k
+nehledíc na
+nehledíc k
+až na
+včetně
+počítaje v to
+počítajíc v to
+nevyjímaje
+nevyjímajíc
+jménem
+pod hlavičkou
+pod jménem
+v roli
+v zastoupení
+v oblasti
+na úseku
+v mezích
+ve sféře
+na poli
+v rámci
+do pozadí
+do popředí
+v pozadí
+v popředí
+v centru
+do centra
+na vrcholu
+na dně
+na pokraji
+na úkor
+na vrub
+na účet
+na konto
+veprostřed
+v pádu
+namísto
+ad
+von
+durch
+a
+aby
+abych
+abys
+abychom
+abyste
+ale
+alespoň
+aneb
+anebo
+ani
+aniž
+ano i
+anžto
+aspoň
+avšak
+ať
+až
+ač
+ačkoli
+ačkoliv
+bez
+bude-li
+buď
+buďto
+buďsi
+by
+byť
+byťsi
+co
+div
+dlouho
+dokdy
+dokonce
+dokud
+dotud
+dále
+díky
+důsledku
+eventuálně
+hlavně
+hlediska
+hned
+i
+jak
+jakkoli
+jakkoliv
+jakmile
+jako
+jakoby
+jakož
+jakožto
+jaký
+je-li
+jednak
+jednou
+jelikož
+jen
+jenom
+jenomže
+jenže
+jestli
+jestliže
+ještě
+ježto
+jinak
+kam
+kde
+kdežto
+kdo
+kdy
+kdybych
+kdybys
+kdyby
+kdybychom
+kdybyste
+když
+kolik
+konečně
+kromě
+který
+kudy
+kvůli
+leda
+ledaže
+leč
+mimoto
+má-li
+málem
+nadto
+najednou
+nakonec
+naopak
+napřed
+navzdory
+navíc
+načež
+ne
+ne-li
+nebo
+neboli
+neboť
+nechť
+nejen
+není-li
+než
+nežli
+neřkuli
+nicméně
+nýbrž
+obdobně
+odkdy
+odkud
+ohledem
+ohledu
+pak
+pakli
+pakliže
+podle
+podmínky
+pokaždé
+pokud
+poněvadž
+popřípadě
+potom
+potud
+poté
+pročež
+proto
+protože
+právě
+přece
+za předpokladu
+při předpokladu
+přestože
+přitom
+přímo
+z příčiny
+a rovněž
+se
+sic
+sice
+sotva
+sotvaže
+spíš
+spíše
+stejně
+stránce
+tak
+takový
+taktak
+takže
+také
+tedy
+ten
+teprve
+to
+toho
+tolik
+tomu
+totiž
+tu
+tudíž
+tím
+třeba
+třebas
+třebasže
+třebaže
+týká
+týče
+vzdor
+vzhledem
+však
+všemu
+vždy
+vždycky
+vždyť
+zatímco
+zda
+zdali
+zejména
+zrovna
+zvláště
+zároveň
+zčásti
+zřením
+zřetelem
+že
+či
+účelem
+respektive
+coby
+krom
+mezitímco
+neb
+vulgo
+žes
+jakby
+nercili
+-li
+aťsi
+ačli
+čili
+jedvaže
+nejenže
+a i
+a ani
+a tudíž
+a tudíž i
+ač jestli
+ač jestliže
+ale i
+anebo i
+ani kdyby
+ani když
+byť i
+byťsi i
+i kdyby
+i když
+leč i
+nebo i
+nýbrž i
+přesto však
+ale také
+nebo dokonce
+a nadto ještě
+ale právě proto
+ale přece jen
+ale na druhé straně
+a to ještě i
+a k tomu všemu
+a k tomu ke všemu
+když už
+když vtom
+když tu
+ldyž nakonec
+leda když
+ještě když
+hned když
+dříve než
+až najednou
+až konečně
+až nakonec
+až pak
+jak jenom
+jak jen
+hned jak
+byť i jen
+byť třebas
+byť nakrásně
+leda by
+málem že
+právě tak jako
+stejně jako
+ba dokonce
+ba právě naopak
+ba přímo
+ba vůbec
+dokonce naopak
+amen
+ámen
+aha
+ahá
+ahoj
+ach
+aleluja
+baf
+bam
+bác
+bim
+bum
+fuj
+fáry
+láry
+ha
+haf
+haló
+hej
+hejsa
+hm
+hoj
+hola
+hrome
+hurá
+krá
+kuku
+príma
+pst
+prásk
+bacha
+basta
+bezva
+halabala
+haleluja
+heuréka
+hopla
+hopsa
+uf
+uff
+nazdar
+sbohem
+jejda
+juj
+jujda
+proboha
+ouha
+tralala
+vivat
+ťapi
+bzum
+žbluňk
+šup
+rukulíbám
+gaga
+gagaga
+gágá
+pa
+papa
+pá
+pápá
+sakra
+hle
+puf
+och
+kšá
+probůh
+nedejbože
+hot
+čehý
+pr
+prr
+huj
+vrz
+haha
+bla
+škráb
+plác
+jéje
+hele
+techtle
+mechtle
+nene
+paf
+šťouch
+ách
+áách
+cvak
+škvrrrk
+plesk
+prsk
+fuk
+ťuk
+chm
+ehm
+hmm
+hmmm
+mmmm
+hmmmm
+mmmmm
+achjo
+nojo
+mno
+eňo
+dup
+hup
+cimprcampr
+brr
+grr
+brrr
+chrrr
+grrrr
+crrrrr
+vrrr
+vrr
+psst
+pšt
+pššt
+pšššt
+tůůt
+hu
+vrzy
+ohó
+au
+aú
+ejhle
+brnky
+brnk
+jé
+škyt
+heč
+buch
+břink
+hop
+hrr
+plesky
+ah
+panečku
+propánakrále
+prokrýlepána
+ťululum
+prokristapána
+čiči
+čičiči
+čičí
+čičičí
+paci
+cilink
+cililink
+cink
+ňam
+mňam
+ham
+holenku
+holenkové
+mordie
+mordije
+mordyje
+mordyjé
+hou
+houpy
+houpity
+čau
+hajdy
+hyjé
+hije
+hyje
+hi
+chi
+hihi
+chichi
+cha
+chacha
+hip
+hí
+hy
+hý
+hepčí
+hepčík
+hečte
+heleď
+jo
+jojo
+jó
+kš
+pš
+kšš
+pšš
+frr
+che
+cheche
+propánaboha
+kdák
+kokodák
+kokokodák
+tiktak
+tik
+tak
+ťak
+kvak
+kvák
+frnk
+cvrnk
+kuňk
+kvok
+bimbam
+tramtadam
+živio
+vijó
+mňau
+bu
+bú
+bubu
+bububu
+holahou
+vrkú
+cukrú
+tú
+tutú
+ťapy
+ťap
+cupy
+dupy
+capy
+klapy
+bzz
+ťuky
+cvaky
+skříp
+prokrista
+bebé
+tradá
+tramtadá
+juch
+juchu
+juchú
+juchej
+juché
+juchá
+juchacha
+juchajda
+adié
+vijé
+ježíšmarjá
+tramtará
+kikiriki
+pi
+pipi
+pípí
+cák
+cik
+cak
+šmik
+kvik
+kvík
+kuk
+cvaky
+ťapity
+cupity
+bz
+šalala
+šuby
+hosana
+kykyryký
+kikirikí
+hr
+hopsasa
+cikcak
+kvoč
+čimčara
+čim
+jaj
+jajaj
+jeje
+jejeje
+jejej
+inu
+no
+nono
+nó
+co
+cože
+copak
+heleme
+heleďme
+heleďte
+píp
+spánembohem
+těbůh
+viď
+viďte
+čao
+ale
+abba
+zaplaťpámbu
+zaplaťpánbůh
+tumáš
+safra
+řach
+achich
+božínku
+krucinál
+tajksl
+ouvej
