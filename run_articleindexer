@@ -1,0 +1,2 @@
+#!/bin/bash
+java -cp lib/*:esalib.jar clldsystem.esa.ArticleIndexer 0

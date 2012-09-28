@@ -1,0 +1,3 @@
+#!/bin/bash
+java -cp esalib.jar:lib/* clldsystem.esa.ESAIndexBuilder
+

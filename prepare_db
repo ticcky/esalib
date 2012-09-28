@@ -1,0 +1,2 @@
+#!/bin/bash
+mysql -uroot -proot < prepare_db.sql
