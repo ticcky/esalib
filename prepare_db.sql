@@ -1,5 +1,5 @@
-CREATE DATABASE kwesa_test;
-USE kwesa_test;
+--CREATE DATABASE kwesa_test;
+--USE kwesa_test;
 CREATE TABLE page (page_id INTEGER NOT NULL PRIMARY KEY, text TEXT);
 
 -- insert sample data

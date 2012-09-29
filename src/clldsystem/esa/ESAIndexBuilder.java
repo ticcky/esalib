@@ -68,13 +68,13 @@ public class ESAIndexBuilder {
 		stmtLink.execute("CREATE TABLE " + ndxTable + " ("
 			+ "term VARBINARY(255),"
 			+ "vector MEDIUMBLOB "
-			+ ") DEFAULT CHARSET=binary");
+			+ ")");
 
 		stmtLink.execute("DROP TABLE IF EXISTS " + termsTable);
 		stmtLink.execute("CREATE TABLE " + termsTable + " ("
 			+ "term VARBINARY(255),"
 			+ "idf FLOAT "
-			+ ") DEFAULT CHARSET=binary");
+			+ ")");
 
 
 		pstmtVector = db.getConnection().prepareStatement(strVectorQuery);
@@ -381,7 +381,7 @@ public class ESAIndexBuilder {
 
 				// write to DB
 				pstmtVector.setString(1, prevTerm);
-				pstmtVector.setBlob(2, new ByteArrayInputStream(dbvector.toByteArray()));
+				pstmtVector.setBytes(2, dbvector.toByteArray());
 
 				pstmtVector.addBatch();
 
@@ -408,14 +408,16 @@ public class ESAIndexBuilder {
 		FileOutputStream tos = new FileOutputStream("term.txt");
 		OutputStreamWriter tsw = new OutputStreamWriter(tos, "UTF-8");
 
+		//stmtLink.execute("CREATE TABLE " + termsTable + " (term text, vector text);");
 		for (String tk : idfMap.keySet()) {
 			tsw.write("'" + tk.replace("\\", "\\\\").replace("'", "\\'") + "'\t" + idfMap.get(tk) + "\n");
+			stmtLink.execute("INSERT INTO " + termsTable + " VALUES ('" + tk.replace("\\", "\\\\").replace("'", "\\'") + "', '" + idfMap.get(tk) + "');");
 		}
 		osw.close();
 		tsw.close();
-		stmtLink.execute(strTermLoadData);
-		stmtLink.execute("CREATE INDEX idx_term ON " + termsTable + " (term(32))");
-		stmtLink.execute("CREATE INDEX idx_term ON " + ndxTable + " (term(32))");
+		//stmtLink.execute(strTermLoadData);
+		stmtLink.execute("CREATE INDEX terms_term ON " + termsTable + " (term)");
+		stmtLink.execute("CREATE INDEX idx_term ON " + ndxTable + " (term)");
 
 		eTime = System.currentTimeMillis();
 

@@ -1,2 +1,3 @@
 #!/bin/bash
-mysql -uroot -proot < prepare_db.sql
+#mysql -uroot -proot < prepare_db.sql
+sqlite3 esadb.db < prepare_db.sql

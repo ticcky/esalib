@@ -12,6 +12,7 @@ public class DBConfig {
 	public String database;
 	public String username;
 	public String password;
+	public String schema;
 
 	public DBConfig() {
 	}
@@ -22,6 +23,8 @@ public class DBConfig {
 
 	public void setConnectionFromDrupalUrl(String url) {
 		String[] tmp = url.split(":", 3);
+		schema = tmp[0];
+		
 		String user = tmp[1].replaceAll("/", "");
 		Integer atPos = tmp[2].indexOf("@");
 		String pass = tmp[2].substring(0, atPos);

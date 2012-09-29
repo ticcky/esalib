@@ -3,6 +3,7 @@ package clldsystem.esa;
 import clldsystem.data.LUCENEWikipediaAnalyzer;
 import common.HeapSort;
 import common.Utils;
+import common.config.AppConfig;
 import common.db.DB;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
@@ -208,14 +209,17 @@ public class ESAAnalyzer {
 		// if the index is not in the memory, read from the database the required information
 		if (!loadToMemory) {
 			// prepare temporary table with all the terms from our document
-			db.executeUpdate("DROP TEMPORARY TABLE IF EXISTS _esaterms");
+			db.executeUpdate("DROP TABLE IF EXISTS _esaterms");
 			db.executeUpdate("CREATE TEMPORARY TABLE _esaterms (term VARCHAR(255))");
-			PreparedStatement psTTerms = db.getConnection().prepareStatement("INSERT IGNORE INTO _esaterms SET term = ?");
+			PreparedStatement psTTerms = db.getConnection().prepareStatement("INSERT INTO _esaterms (term) VALUES (?)");
 			for (String t : termList) {
 				psTTerms.setBytes(1, t.getBytes("UTF-8"));
 				psTTerms.addBatch();
 			}
 			psTTerms.executeBatch();
+			psTTerms.close();
+			
+			
 
 			// nov retreive the wiki vectors and idf's of the terms from the database
 			ResultSet res;
@@ -495,9 +499,12 @@ public class ESAAnalyzer {
 	}
 
 	public static void main(String[] args) throws SQLException, ClassNotFoundException, IOException {
-		ESAAnalyzer esa = new ESAAnalyzer(new DB("mysql://root:root@localhost/kwesa"), "kw");
-		esa.setAnalyzer(new LUCENEWikipediaAnalyzer("/home/zilka/devel/rr/keyword_crawl/res/stopwords.en.txt", "org.tartarus.snowball.ext.EnglishStemmer"));
-		System.out.println(esa.getRelatedness("whispering gallery", "zero current transition"));
+		AppConfig cfg = AppConfig.getInstance();
+		cfg.setSection("ESAAnalyzer");
+		
+		ESAAnalyzer esa = new ESAAnalyzer(new DB(cfg.getSString("db")), cfg.getSString("lang"));
+		esa.setAnalyzer(new LUCENEWikipediaAnalyzer(cfg.getSString("stopWordsFile"), cfg.getSString("stemmerClass")));
+		System.out.println(esa.getRelatedness(args[0], args[1]));
 		//System.out.println(esa.getRelatedness("bull", "cow"));
 	}
 }

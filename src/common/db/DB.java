@@ -26,21 +26,29 @@ public class DB {
 
 	private Connection connection;
 	private Statement stmt = null;
+	private DBConfig _dbConfig = null;
 
-	public DB(String serverName, String database, String username, String password) throws SQLException, ClassNotFoundException {
+	public DB(String serverName, String database, String username, String password, String schema) throws SQLException, ClassNotFoundException {
 		this.connection = null;
 		// Load the JDBC driver
-		String driverName = "org.gjt.mm.mysql.Driver"; // MySQL MM JDBC driver
+		
+		String driverName = "";
+		String url = "";
+		if(schema.equals("mysql")) {
+			driverName = "org.gjt.mm.mysql.Driver"; // MySQL MM JDBC driver
+			url = "jdbc:mysql://" + serverName + "/"
+				+ database
+				+ "?useUnicode=true&characterEncoding=utf8&useCursorFetch=true&autoReconnect=true";			
+		}
+		else if(schema.equals("sqlite")) {
+			driverName = "org.sqlite.JDBC";
+			url = "jdbc:sqlite:" + database;
+		}
+		
 		Class.forName(driverName);
-
-		// Create a connection to the url
-		String url = "jdbc:mysql://" + serverName + "/"
-			+ database
-			+ "?useUnicode=true&characterEncoding=utf8&useCursorFetch=true&autoReconnect=true";
+			
 		this.connection = DriverManager.getConnection(url, username, password);
-
 		this.stmt = this.connection.createStatement();
-
 	}
 
 	public DB(String conn) throws SQLException, ClassNotFoundException {
@@ -48,15 +56,15 @@ public class DB {
 	}
 
 	public DB(DBConfig c) throws SQLException, ClassNotFoundException {
-		// proxy constructor
-		this(c.serverName, c.database, c.username, c.password);
+		this(c.serverName, c.database, c.username, c.password, c.schema);
+				
 	}
 
 	public ResultSet executeSelect(String sql) {
 		ResultSet rs = null;
 		try {
-			stmt.executeQuery(sql);
-			rs = stmt.getResultSet();
+			rs = stmt.executeQuery(sql);
+			//rs = stmt.getResultSet();
 		} catch (SQLException e) {
 			System.out.println("Cannot execute command: " + sql);
 			System.out.println(e);
