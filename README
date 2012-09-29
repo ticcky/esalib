@@ -20,7 +20,7 @@ My implementation of Explicit Semantic Analysis (ESA) library that we used at KM
         # cd esalib
 
 1. Create a symbolic link to the sample database
-        # ln -s examples/esadb.db
+        # ln -s examples/esa_en.db esadb.db
 
 2. Get relatedness estimate of two texts:
         # ./run_analyzer "computer" "apple"
