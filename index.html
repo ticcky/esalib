@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>ESAlib by ticcky</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>ESAlib</h1>
+        <p>implementation of Explicit Semantic Analysis in Java using SQLite or MySQL</p>
+
+        <p class="view"><a href="https://github.com/ticcky/esalib">View the Project on GitHub <small>ticcky/esalib</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/ticcky/esalib/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/ticcky/esalib/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/ticcky/esalib">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>What is this good for?</h3>
+
+<p>When you need to find out how much semantically similar two pieces of text are (no matter if just two words, or two articles).</p>
+
+<p>ESA is currently the state-of-the-art method for comparing semantic similarity of texts.</p>
+
+<h3>So how to get ESA running in 2 minutes for English?</h3>
+
+<p>0.</p>
+
+<pre><code>$ git co https://github.com/ticcky/esalib.git
+$ cd esalib
+</code></pre>
+
+<ol>
+<li>
+<p>Create a symbolic link to the sample database</p>
+
+<pre><code>$ ln -s examples/esa_en.db esadb.db
+</code></pre>
+</li>
+<li>
+<p>Get relatedness estimate of two texts:</p>
+
+<pre><code>$ ./run_analyzer "computer" "apple"
+</code></pre>
+</li>
+</ol><h3>What to do if you are struggling with something?</h3>
+
+<p>Just email me for help ;)</p>
+
+<h3>Credits</h3>
+
+<p>Evgeniy Gabrilovich - <a href="http://www.cs.technion.ac.il/%7Egabr/resources/code/esa/esa.html">http://www.cs.technion.ac.il/~gabr/resources/code/esa/esa.html</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/ticcky">ticcky</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-15431286-4");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
