@@ -1,7 +1,29 @@
 My implementation of Explicit Semantic Analysis (ESA) library that we used at KMi, Open University to produce our submission at the NTCIR-9 CrossLink task. 
 
+== Changelog ==
+
+29.9.2012 - added support for SQLite, so that the library is better usable for fast prototyping
+
+25.3.2012 - initial release
+
+== Files ==
  - /example - see example data in /example where you can find an ESA background built from Wikipedia snapshot from 2005, and directly use it in our tools for assessing semantic similarity of English textis/words.
 
  - /tutorial - basic instructions for building your own background
 
- I want to add more specific and intuitive examples soon, but please don't hessitate to get in touch if you want to use my library and have troubles with it.
+ - /lib - Java libraries required to run
+
+
+== So how to get ESA running in 2 minutes for English? ==
+0.
+        # git co https://github.com/ticcky/esalib.git
+        # cd esalib
+
+1. Create a symbolic link to the sample database
+        # ln -s examples/esadb.db
+
+2. Get relatedness estimate of two texts:
+        # ./run_analyzer "computer" "apple"
+
+
+Please don't hessitate to get in touch if you want to use my library but have troubles with it.
