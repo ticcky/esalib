@@ -1,33 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>ESAlib by ticcky</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="ESAlib : implementation of Explicit Semantic Analysis in Java using SQLite or MySQL" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>ESAlib</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>ESAlib</h1>
-        <p>implementation of Explicit Semantic Analysis in Java using SQLite or MySQL</p>
 
-        <p class="view"><a href="https://github.com/ticcky/esalib">View the Project on GitHub <small>ticcky/esalib</small></a></p>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/ticcky/esalib">View on GitHub</a>
 
+          <h1 id="project_title">ESAlib</h1>
+          <h2 id="project_tagline">implementation of Explicit Semantic Analysis in Java using SQLite or MySQL</h2>
 
-        <ul>
-          <li><a href="https://github.com/ticcky/esalib/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/ticcky/esalib/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/ticcky/esalib">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/ticcky/esalib/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/ticcky/esalib/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h3>What is this good for?</h3>
 
 <p>When you need to find out how much semantically similar two pieces of text are (no matter if just two words, or two articles).</p>
@@ -36,13 +39,14 @@
 
 <h3>So how to get ESA running in 2 minutes for English?</h3>
 
-<p>0.</p>
+<ol>
+<li>
+<p>Download the repo with the pre-built jar and database</p>
 
 <pre><code>$ git co https://github.com/ticcky/esalib.git
 $ cd esalib
 </code></pre>
-
-<ol>
+</li>
 <li>
 <p>Create a symbolic link to the sample database</p>
 
@@ -61,14 +65,20 @@ $ cd esalib
 
 <h3>Credits</h3>
 
-<p>Evgeniy Gabrilovich - <a href="http://www.cs.technion.ac.il/%7Egabr/resources/code/esa/esa.html">http://www.cs.technion.ac.il/~gabr/resources/code/esa/esa.html</a></p>
+<p>Source code is partially based on the <a href="http://www.cs.technion.ac.il/%7Egabr/resources/code/esa/esa.html">original implementation of Evgeniy Gabrilovich</a>.</p>
+
+<p>I was working under supervision of <a href="http://people.kmi.open.ac.uk/petr/">Petr Knoth</a>.</p>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/ticcky">ticcky</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">ESAlib maintained by <a href="https://github.com/ticcky">ticcky</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -79,6 +89,7 @@ $ cd esalib
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
