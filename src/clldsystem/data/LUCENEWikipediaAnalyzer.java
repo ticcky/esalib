@@ -97,7 +97,7 @@ public class LUCENEWikipediaAnalyzer extends Analyzer {
 			Tokenizer tokenizer = new WikipediaTokenizer(reader);
 
 			TokenStream stream = new StandardFilter(Version.LUCENE_30, tokenizer);
-			stream = new LengthFilter(true, stream, 3, 100);
+			//stream = new LengthFilter(true, stream, 3, 100);
 			stream = new LowerCaseFilter(Version.LUCENE_30, stream);
 			// stopword filter
 			if (stopWordSet != null) {
