@@ -198,7 +198,7 @@ public class ESAAnalyzer {
 			numTerms++;
 		}
 		ts.end();
-		ts.close();
+		ts.close();		
 
 		// start the output
 		ByteArrayInputStream bais;
@@ -376,6 +376,9 @@ public class ESAAnalyzer {
 				c2 = getConceptVector(doc2);
 				esaCache.put(doc2, c2);
 			}
+			
+			System.err.println("vector 1 dimensions: " + c1.count());
+			System.err.println("vector 2 dimensions: " + c2.count());
 
 			return getRelatedness(c1, c2);
 		} catch (IOException ex) {
