@@ -331,7 +331,10 @@ public class ESAAnalyzer {
 			esaCache.put(query, newCv);
 		}
 
-		return newCv;
+		if(newCv.count() > 0)
+			return newCv;
+		else
+			return null;
 	}
 
 	/**
@@ -376,7 +379,8 @@ public class ESAAnalyzer {
 				c2 = getConceptVector(doc2);
 				esaCache.put(doc2, c2);
 			}
-			
+			if(c1 == null || c2 == null)
+				return Double.NaN;
 			System.err.println("vector 1 dimensions: " + c1.count());
 			System.err.println("vector 2 dimensions: " + c2.count());
 
