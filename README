@@ -1,6 +1,7 @@
 My implementation of Explicit Semantic Analysis (ESA) library that we used at KMi, Open University to produce our submission at the NTCIR-9 CrossLink task. 
 
 == Changelog ==
+7.10.2012 - fixed a typo in analyzer bash script, causing only the first words to be analyzed; fixed handling of oov words; removed length filter (only words 3-100 chars long were considered)
 
 29.9.2012 - added support for SQLite, so that the library is better usable for fast prototyping
 
