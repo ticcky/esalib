@@ -93,7 +93,23 @@ public class LUCENEWikipediaAnalyzer extends Analyzer {
 	 */
 	@Override
 	public TokenStream tokenStream(String fieldName, Reader reader) {
-		if (lang == null || !lang.equals("zh")) {
+		if (snowballStemmer.equals("*porter")) { // if you want to use porter stemmer instead of snowball (orig. wikiprep-esa)
+			Tokenizer tokenizer = new WikipediaTokenizer(reader);
+			TokenStream stream = new StandardFilter(Version.LUCENE_30, tokenizer);
+			stream = new LowerCaseFilter(Version.LUCENE_30, stream);
+			
+			if (stopWordSet != null) {
+				stream = new StopFilter(Version.LUCENE_30, stream, stopWordSet);
+			}
+			
+			stream = new PorterStemFilter(stream);
+            stream = new PorterStemFilter(stream);
+            stream = new PorterStemFilter(stream);
+            
+            return stream;
+			
+		}
+		else if (lang == null || !lang.equals("zh")) {
 			Tokenizer tokenizer = new WikipediaTokenizer(reader);
 
 			TokenStream stream = new StandardFilter(Version.LUCENE_30, tokenizer);

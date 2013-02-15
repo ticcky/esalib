@@ -1,11 +1,19 @@
 My implementation of Explicit Semantic Analysis (ESA) library that we used at KMi, Open University to produce our submission at the NTCIR-9 CrossLink task. 
 
 == Changelog ==
-7.10.2012 - fixed a typo in analyzer bash script, causing only the first words to be analyzed; fixed handling of oov words; removed length filter (only words 3-100 chars long were considered)
+15.2.2013
+ - found out about problem with stemming - the example english background is stemmed by PorterStemmer, but my library uses SnowballStemmer; this results in a lot of OOV words and therefore low similarity scores
+ - added interactive mode to the analyzer - now you can pipe-in pairs of texts to compare (1 line = 1 text) and ESAAnalyzer produces the similarity scores
+ - added wikixray scripts that were missing from the tutorial
 
-29.9.2012 - added support for SQLite, so that the library is better usable for fast prototyping
+7.10.2012 
+ - fixed a typo in analyzer bash script, causing only the first words to be analyzed; fixed handling of oov words; removed length filter (only words 3-100 chars long were considered)
 
-25.3.2012 - initial release
+29.9.2012
+ - added support for SQLite, so that the library is better usable for fast prototyping
+
+25.3.2012
+ - initial release
 
 == Files ==
  - /example - see example data in /example where you can find an ESA background built from Wikipedia snapshot from 2005, and directly use it in our tools for assessing semantic similarity of English textis/words.

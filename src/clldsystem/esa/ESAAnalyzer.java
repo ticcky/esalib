@@ -5,10 +5,13 @@ import common.HeapSort;
 import common.Utils;
 import common.config.AppConfig;
 import common.db.DB;
+
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -43,7 +46,7 @@ public class ESAAnalyzer {
 	String lang;
 	DB db;
 	boolean caching = false; // cache the results?
-	boolean loadToMemory = false; // theoretically loading the whole esa index first into the memory might help the overall speed a bit
+	boolean loadToMemory = true; // theoretically loading the whole esa index first into the memory might help the overall speed a bit
 	boolean debug = false;
 	// database connection
 	Connection connection;
@@ -112,6 +115,7 @@ public class ESAAnalyzer {
 			while (res.next()) {
 				esaIdf.put(new String(res.getBytes("term"), "UTF-8"), res.getFloat("idf"));
 			}
+			System.err.println("index loaded to memory");
 		}
 
 		strTermQuery = "SELECT t.vector FROM " + lang
@@ -191,6 +195,7 @@ public class ESAAnalyzer {
 		while (ts.incrementToken()) {
 			TermAttribute t = ts.getAttribute(TermAttribute.class);
 			strTerm = t.term();
+			System.out.println(strTerm.toString());
 			if (strTerm.equals(",") || strTerm.equals(".")) {
 				continue;
 			}
@@ -210,9 +215,10 @@ public class ESAAnalyzer {
 		if (!loadToMemory) {
 			// prepare temporary table with all the terms from our document
 			db.executeUpdate("DROP TABLE IF EXISTS _esaterms");
-			db.executeUpdate("CREATE TEMPORARY TABLE _esaterms (term VARCHAR(255))");
+			db.executeUpdate("CREATE TABLE _esaterms (term VARCHAR(255))");
 			PreparedStatement psTTerms = db.getConnection().prepareStatement("INSERT INTO _esaterms (term) VALUES (?)");
-			for (String t : termList) {
+			for (String t : termList) {		
+				//psTTerms.setString(1, t);
 				psTTerms.setBytes(1, t.getBytes("UTF-8"));
 				psTTerms.addBatch();
 			}
@@ -370,6 +376,8 @@ public class ESAAnalyzer {
 	public double getRelatedness(String doc1, String doc2) {
 		try {
 			IConceptVector c1;
+			if(!caching)
+				esaCache.clear();
 			if ((c1 = esaCache.get(doc1)) == null) {
 				c1 = getConceptVector(doc1);
 				esaCache.put(doc1, c1);
@@ -506,13 +514,37 @@ public class ESAAnalyzer {
 	}
 
 	public static void main(String[] args) throws SQLException, ClassNotFoundException, IOException {
+		// load config
 		AppConfig cfg = AppConfig.getInstance();
 		cfg.setSection("ESAAnalyzer");
 		
+		// create analyzer
 		ESAAnalyzer esa = new ESAAnalyzer(new DB(cfg.getSString("db")), cfg.getSString("lang"));
-		esa.setAnalyzer(new LUCENEWikipediaAnalyzer(cfg.getSString("stopWordsFile"), cfg.getSString("stemmerClass")));
-		System.out.println(esa.getRelatedness(args[0], args[1]));
-		//System.out.println(esa.getRelatedness("bull", "cow"));
+		LUCENEWikipediaAnalyzer wikiAnalyzer = new LUCENEWikipediaAnalyzer(cfg.getSString("stopWordsFile"), cfg.getSString("stemmerClass"));
+		wikiAnalyzer.setLang(cfg.getSString("lang"));
+		esa.setAnalyzer(wikiAnalyzer);
+		
+
+		if(args.length == 0) {	// for interactive mode			
+			InputStreamReader converter = new InputStreamReader(System.in);
+			BufferedReader in = new BufferedReader(converter);
+			String curLine = null;
+			String curLine2 = "";
+			while(curLine != "") {
+				curLine = in.readLine();
+				curLine2 = in.readLine();
+				long startTime = System.nanoTime();
+				System.out.println(esa.getRelatedness(curLine, curLine2));
+				System.err.println("time: " + (System.nanoTime() - startTime) / 1000000000.0);
+			}
+		} else if(args.length == 2) {  // for non-interactive mode
+			System.out.println(esa.getRelatedness(args[0], args[1]));
+		} else {
+			System.out.println("Please specify 0 arguments for interactive use, or exactly 2 strings as arguments for non-interactive use.");
+		}
+			
+		
+		// System.out.println(esa.getRelatedness("journei", "cow"));
 	}
 }
 // clean-up index

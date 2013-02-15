@@ -1,3 +1,8 @@
 #!/bin/bash
-java -cp lib/*:esalib.jar clldsystem.esa.ESAAnalyzer "$1" "$2"
+
+if [[ "$1" != "" && "$2" != "" ]]; then
+        java -cp lib/*:esalib.jar clldsystem.esa.ESAAnalyzer "$1" "$2"
+else
+        java -cp lib/*:esalib.jar clldsystem.esa.ESAAnalyzer
+fi
 
