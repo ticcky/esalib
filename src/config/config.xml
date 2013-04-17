@@ -24,7 +24,7 @@
                 <stopWordsFile>res/stopwords.zh.txt</stopWordsFile>
         </ESAAnalyzer:kw>
         <ESAAnalyzer:en>
-                <db>sqlite://root:root@localhost/esa_en.db</db>
+                <db>sqlite://root:root@localhost/esadb.db</db>
 		<lang>en</lang>
 		<stemmerClass>*porter</stemmerClass>
                 <stopWordsFile>res/stopwords.en.txt</stopWordsFile>
