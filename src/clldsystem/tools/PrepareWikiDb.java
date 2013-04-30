@@ -15,10 +15,10 @@ public class PrepareWikiDb {
 		AppConfig cfg = AppConfig.getInstance();
 		cfg.setSection("PrepareWikiDb");
 
-		String connStr = cfg.getString("db");
-		String disambigStr = cfg.getString("disambigStr");
-		String hnDisambigStr = cfg.getString("hnDisambigStr");
-		String lang = cfg.getString("lang");
+		String connStr = cfg.getSString("db");
+		String disambigStr = cfg.getSString("disambigStr");
+		String hnDisambigStr = cfg.getSString("hnDisambigStr");
+		String lang = cfg.getSString("lang");
 
 		DBConfig dbc = new DBConfig();
 		dbc.setConnectionFromDrupalUrl(connStr);
