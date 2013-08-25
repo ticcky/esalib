@@ -45,7 +45,7 @@
 <li>
 <p>Download the repo with the pre-built jar and database</p>
 
-<pre><code>$ git clone https://github.com/ticcky/esalib.git
+<pre><code>$ git co https://github.com/ticcky/esalib.git
 $ cd esalib
 </code></pre>
 </li>
@@ -65,6 +65,24 @@ $ cd esalib
 <a name="what-to-do-if-you-are-struggling-with-something" class="anchor" href="#what-to-do-if-you-are-struggling-with-something"><span class="octicon octicon-link"></span></a>What to do if you are struggling with something?</h3>
 
 <p>Just email me for help ;)</p>
+
+<h3>
+<a name="problems-and-solutions" class="anchor" href="#problems-and-solutions"><span class="octicon octicon-link"></span></a>Problems and solutions</h3>
+
+<p>Occasionally I get some questions about ESAlib on email, and in this section I publish the ones that I thought other ESAlib users might find useful.</p>
+
+<h4>
+<a name="is-possible-to-get-as-a-output-also-the-esa-vectors-of-each-text-and-not-only-the-relatedness-estimate-between-them" class="anchor" href="#is-possible-to-get-as-a-output-also-the-esa-vectors-of-each-text-and-not-only-the-relatedness-estimate-between-them"><span class="octicon octicon-link"></span></a>Is possible to get as a output also the ESA vectors of each text and not only the relatedness estimate between them?</h4>
+
+<p>Yes, it is. Look into src/clldsystem/esa/IConceptVector.java which is the interface for the object that represents the ESA vector. Its instance is returned by the getVector method in src/clldsystem/esa/ESAAnalyzer.java, which get ESA vector fro the given piece of text. getVector is also used internally by the similarity calculator. With the default ESA background that I provided, the dimensions correspond to the pageId's on wikipedia (i.e. dimension # 11400 -&gt; <a href="http://en.wikipedia.org/wiki/?curid=11400">http://en.wikipedia.org/wiki/?curid=11400</a>).</p>
+
+<h4>
+<a name="assertion-failed-jblob-" class="anchor" href="#assertion-failed-jblob-"><span class="octicon octicon-link"></span></a>Assertion failed: (jBlob) ....</h4>
+
+<p>Assertion failed: (jBlob), function Java_org_sqlite_NativeDB_column_1blob, file ../src/main/java/org/sqlite/NativeDB.c, line 513.
+./run_analyzer: line 7:  4119 Abort trap: 6           java -cp lib/*:esalib.jar clldsystem.esa.ESAAnalyzer "$1" "$2"</p>
+
+<p>Check that the directory with the background (.db) resides in a directory where you have writing permissions.</p>
 
 <h3>
 <a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h3>
