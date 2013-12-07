@@ -16,7 +16,7 @@
 \end{description}
 
 \begin{enumerate}
-\item Run the following command to create 3 .sql files out of the Wikipedia dump: \\ \texttt{\# wikixray.py -f <path to the wikipedia dump>}
+\item Run the following command to create 3 .sql files out of the Wikipedia dump: \\ \texttt{\#  bzcat enwiki-latest-pages-articles.xml.bz2 | python scripts/wikixray.py -f }
 \item Import the \texttt{data/mediawiki.sql} into the desired destination database: \\
 \texttt{\# cat data/mediawiki.sql | mysql -u<db user> -p<db password> <wikidb>}
 \item Import the created .sql files into the database: \\
@@ -67,11 +67,11 @@
         <stemmerClass>common.lang.CzechStemmer</stemmerClass>
         <query>
                 <articleIter>
-                             SELECT page_id AS id\, page_id AS page_id\, 
+                             SELECT page_id AS id\, page_id AS page_id\,
                                     'cs' AS lang\, page.page_title\,
-                                    text.old_text AS content FROM page_concepts AS page 
-                             LEFT JOIN revision ON page_id = rev_page 
-                             LEFT JOIN text ON rev_text_id = old_id 
+                                    text.old_text AS content FROM page_concepts AS page
+                             LEFT JOIN revision ON page_id = rev_page
+                             LEFT JOIN text ON rev_text_id = old_id
                              WHERE page_id > ? LIMIT 100
                 </articleIter>
 	</query>
@@ -119,7 +119,7 @@
     \item[indexPath] file path to the folder where the article index will be stored
     \item[stopwordsFile] file path to the file with stop-words
     \item[stemmerClass] full Java path to the Snowball class that does the stemming
-    \item[query.articleIter] SQL query in @articleDb to retrieve the list of articles for 
+    \item[query.articleIter] SQL query in @articleDb to retrieve the list of articles for
   \end{description}
 \begin{verbatim}
 <ESAIndexer>
@@ -133,8 +133,8 @@
         <stemmerClass></stemmerClass>
         <query>
         <articleIter>
-                SELECT page_id AS id\, page_id\, page.page_title\, text.old_text AS content 
-                FROM page_concepts AS page LEFT JOIN revision ON page_id = rev_page 
+                SELECT page_id AS id\, page_id\, page.page_title\, text.old_text AS content
+                FROM page_concepts AS page LEFT JOIN revision ON page_id = rev_page
                 LEFT JOIN text ON rev_text_id = old_id WHERE page_id > ? LIMIT 100
         </articleIter>
         </query>
