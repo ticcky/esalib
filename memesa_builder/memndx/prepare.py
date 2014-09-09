@@ -95,8 +95,6 @@ class PrepareIndex:
 
 	    if len(vector) != self.VECTOR_LENGTH:
 	    	vector = vector + "\0" * (self.VECTOR_LENGTH - len(vector))
-	    if len(vector != 808:
-	    	import pdb; pdb.set_trace()
             f_vectors.write(vector)
 	    f_vectors_ndx.write(struct.pack("i", doc_id))
             
