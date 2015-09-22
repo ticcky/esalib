@@ -1,5 +1,8 @@
 My implementation of Explicit Semantic Analysis (ESA) library that we used at KMi, Open University to produce our submission at the NTCIR-9 CrossLink task. 
 
+== WARNING ==
+The tool is verified to yield good results with the provided prebuilt English Wikipedia ESA background from 2005. I have not had success building the ESA background from the recent dumps of Wikipedia. Please let me know if you manage.
+
 == Changelog ==
 7.12.2013
  - fixed a few mistakes in the tutorial
